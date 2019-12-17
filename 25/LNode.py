@@ -20,13 +20,11 @@ class LNode(object):
     def next(self, next):
         self.__next = next
 
-
 class SimpleLinkedList(object):
     '''单链表'''
     def __init__(self):
         self.__head = LNode(0)
         self.__head.next = None
-
 
     def init_linked_list(self, values, if_reversed=False):
         if if_reversed:
@@ -35,7 +33,6 @@ class SimpleLinkedList(object):
         else:
             for i in reversed(values):
                 self.insert_to_head(i)
-
 
     def insert_to_head(self, value):
         lnode = LNode(value)
@@ -57,7 +54,6 @@ class SimpleLinkedList(object):
             current = current.next
         return count
 
-
     def reverse_util(self, start):
         # 翻转这段区间的链表 然后返回值是这段链表的第一个结点和最后一个结点
         pre = None
@@ -68,8 +64,6 @@ class SimpleLinkedList(object):
             pre = curr
             curr = Next
         return pre
-
-
 
     def reverse_linked_list(self, k):
         # 把链表每num个 翻转一次
@@ -94,7 +88,6 @@ class SimpleLinkedList(object):
                 end = start
                 Pre = start
         return
-
 
 if __name__ == "__main__":
     linkedList = SimpleLinkedList()
