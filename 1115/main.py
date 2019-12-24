@@ -25,6 +25,7 @@ class FooBar:
             print('Bar')
             self.locks[0].release()
 
+
 foobar = FooBar(4)
 th1 = threading.Thread(target=foobar.foo)
 th2 = threading.Thread(target=foobar.bar)
