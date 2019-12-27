@@ -23,15 +23,8 @@ class LNode(object):
 class SimpleLinkedList(object):
     '''单链表'''
     def __init__(self):
-        # 带头结点的链表
         self.__head = LNode(0)
         self.__head.next = None
-
-    def get_head(self):
-        return self.__head
-
-    def set_head(self, node):
-        self.__head = node
 
     def init_linked_list(self, values, if_reversed=False):
         if if_reversed:
@@ -95,36 +88,6 @@ class SimpleLinkedList(object):
                 end = start
                 Pre = start
         return
-
-    def merge_sort(self):
-        # 用归并排序
-        # 步骤一 先用快慢指针 将链表截断
-        fast = self.__head
-        slow = self.__head
-        while fast.next!= None and fast.next.next!= None:
-            slow = slow.next
-            fast = fast.next.next
-
-        link1 = self.__head
-        link2 = slow.next
-        slow.next = None
-
-        left = self.merge_sort()
-        print('链表1')
-        while link1!= None:
-            print(link1.data)
-            link1 = link1.next
-
-        print('链表2')
-        while link2!= None:
-            print(link2.data)
-            link2 = link2.next
-
-
-
-
-
-
 
 if __name__ == "__main__":
     linkedList = SimpleLinkedList()
