@@ -19,4 +19,37 @@
 解释: 它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。
 '''
 
+def num_decode(s):
+    length = len(s) - 1
+    return decode(s, length)
+
+
+def decode(s, index):
+    if (index <= 0):
+        return 1
+    # 解码数和两部分有关 curr和 prev+curr
+    # 当前字符和前一个字符
+    curr = s[index]
+    prev = s[index-1]
+
+    if curr == '0':
+        count = 0
+
+    else:
+        count = decode(s, index-1)
+
+    # 除了自身的次数 还需要加上与前一个字符连一块次数
+    if (prev == '2' and curr <= '6') or (prev == '1'):
+        count += decode(s, index-2)
+
+    return count
+
+
+cnt = num_decode('26')
+print(cnt)
+
+
+
+
+
 
