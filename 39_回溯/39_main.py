@@ -21,18 +21,19 @@ https://zhuanlan.zhihu.com/p/93530380
 '''
 
 
-
+import copy
 class Solution:
     def __init__(self):
         self.result = []
 
-
     def backtrace(self, current_path, candidates, target):
         # 如果和满足target 那么打印出来
         if sum(current_path) == target:
-            self.result.append(current_path)
-            print(current_path)
-            return
+            c = copy.deepcopy(current_path)
+            c.sort()
+            if c not in self.result:
+                self.result.append(c)
+                return
 
         # 如果和超过了 那么排除
         if sum(current_path) > target:
@@ -49,9 +50,8 @@ class Solution:
         # 初始化一个当前路径
         current_path = []
         self.backtrace(current_path, candidates, target)
-        print(self.result)
         return self.result
 
 s = Solution()
-s.combinationSum([2, 3, 5], 8)
+s.combinationSum([1, 2], 4)
 

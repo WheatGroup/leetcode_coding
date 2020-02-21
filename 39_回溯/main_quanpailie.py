@@ -2,13 +2,14 @@
 
 array = [1, 2, 3]
 result = []
+import copy
 
 def backtrace(array, current_path):
-    global result
     # 如果target的的长度等于 array的长度
     if len(current_path) == len(array):
-        # result.append(current_path)
-        print(current_path)
+        c = copy.deepcopy(current_path)
+        result.append(c)
+        print(c)
         return
 
     # 如果长度不满足 那么继续添加
