@@ -20,6 +20,7 @@ class LNode(object):
     def next(self, next):
         self.__next = next
 
+
 class SimpleLinkedList(object):
     '''单链表'''
     def __init__(self):
